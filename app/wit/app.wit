@@ -1,8 +1,48 @@
 package dbg:app;
 
+interface sync {
+    resource xx {}
+
+    flags abc {
+        a,
+        b,
+        c,
+    }
+
+    record rec-nested {
+        foo: string,
+    }
+
+    record rec {
+        nested: rec-nested,
+    }
+
+    variant var {
+        var(rec),
+        empty,
+    }
+
+    enum foobar {
+        foo,
+        bar,
+    }
+
+    fallible: func(ok: bool) -> result<bool, string>;
+    numbers: func(a: u8, b: u16, c: u32, d: u64, e: s8, f: s16, g: s32, x: s64, aa: f32, bb: f64) -> tuple<u8, u16, u32, u64, s8, s16, s32, s64, f32, f64>;
+    with-flags: func(a: bool, b: bool, c: bool) -> abc;
+    with-variant-option: func(ok: bool) -> option<var>;
+    with-variant-list: func(c: char, s: string, l: list<u8>, l2: list<rec>, l3: list<u64>, o: xx, bo : borrow<xx>) -> (first: list<var>, second: xx);
+    with-record: func(r: rec) -> rec;
+    with-record-list: func(n: u8) -> list<rec>;
+    with-record-tuple: func(x: tuple<u8, u8>) -> tuple<rec, rec>;
+    with-enum: func() -> foobar;
+}
+
 world service {
     export wasi:http/incoming-handler@0.2.0;
 
     // Import all CLI interfaces, which are used by Go libraries
     include wasi:cli/imports@0.2.0;
+
+    import sync;
 }

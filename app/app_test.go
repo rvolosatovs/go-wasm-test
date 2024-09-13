@@ -1,57 +1,102 @@
+//go:generate go run github.com/rvolosatovs/west/cmd/west-bindgen-go@v0.0.1-alpha.1
+
 package app_test
 
 import (
 	"testing"
 	"unsafe"
 
-	"github.com/rvolosatovs/go-wasm-test/app"
+	incominghandler "github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/incoming-handler"
 	"github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types"
-	"github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/io/streams"
+	west "github.com/rvolosatovs/west"
+	_ "github.com/rvolosatovs/west/bindings"
+	testtypes "github.com/rvolosatovs/west/bindings/wasi/http/types"
+	httptest "github.com/rvolosatovs/west/bindings/west/test/http-test"
+	"github.com/stretchr/testify/assert"
 	"github.com/ydnar/wasm-tools-go/cm"
 )
 
-var T *testing.T
-
-//go:linkname wasmimport_OutputStreamResourceDrop github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/io/streams.wasmimport_OutputStreamResourceDrop
-func wasmimport_OutputStreamResourceDrop(self0 uint32) {}
-
-//go:linkname wasmimport_OutputStreamBlockingWriteAndFlush github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/io/streams.wasmimport_OutputStreamBlockingWriteAndFlush
-func wasmimport_OutputStreamBlockingWriteAndFlush(self0 uint32, contents0 *uint8, contents1 uint32, result *cm.Result[streams.StreamError, struct{}, streams.StreamError]) {
-	const EXPECTED = "goodbye, world"
-
-	got := unsafe.String(contents0, contents1)
-	if got != EXPECTED {
-		T.Fatalf("expected: `%s`\ngot: `%s`", EXPECTED, got)
-	}
-}
-
-//go:linkname wasmimport_NewFields github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_NewFields
-func wasmimport_NewFields() (result0 uint32) {
-	return 0
-}
-
-//go:linkname wasmimport_ResponseOutparamSet github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_ResponseOutparamSet
-func wasmimport_ResponseOutparamSet(param0 uint32, response0 uint32, response1 uint32, response2 uint32, response3 uint64, response4 uint32, response5 uint32, response6 uint32, response7 uint32) {
-}
-
-//go:linkname wasmimport_NewOutgoingResponse github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_NewOutgoingResponse
-func wasmimport_NewOutgoingResponse(headers0 uint32) (result0 uint32) {
-	return 0
-}
-
-//go:linkname wasmimport_OutgoingResponseBody github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_OutgoingResponseBody
-func wasmimport_OutgoingResponseBody(self0 uint32, result *cm.Result[types.OutgoingBody, types.OutgoingBody, struct{}]) {
-}
-
-//go:linkname wasmimport_OutgoingBodyFinish github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_OutgoingBodyFinish
-func wasmimport_OutgoingBodyFinish(this0 uint32, trailers0 uint32, trailers1 uint32, result *cm.Result[types.ErrorCode, struct{}, types.ErrorCode]) {
-}
-
-//go:linkname wasmimport_OutgoingBodyWrite github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_OutgoingBodyWrite
-func wasmimport_OutgoingBodyWrite(self0 uint32, result *cm.Result[streams.OutputStream, streams.OutputStream, struct{}]) {
-}
-
-func TestHandle(t *testing.T) {
-	T = t
-	app.Handle(0, 0)
+func TestIncomingHandler(t *testing.T) {
+	west.RunTest(t, func() {
+		headers := testtypes.NewFields()
+		headers.Append(
+			testtypes.FieldKey("foo"),
+			testtypes.FieldValue(cm.NewList(
+				unsafe.SliceData([]byte("bar")),
+				3,
+			)),
+		)
+		headers.Append(
+			testtypes.FieldKey("foo"),
+			testtypes.FieldValue(cm.NewList(
+				unsafe.SliceData([]byte("baz")),
+				3,
+			)),
+		)
+		headers.Set(
+			testtypes.FieldKey("key"),
+			cm.NewList(
+				unsafe.SliceData(
+					[]testtypes.FieldValue{
+						testtypes.FieldValue(cm.NewList(
+							unsafe.SliceData([]byte("value")),
+							5,
+						)),
+					},
+				),
+				1,
+			),
+		)
+		req := testtypes.NewOutgoingRequest(headers)
+		req.SetPathWithQuery(cm.Some("test"))
+		req.SetMethod(testtypes.MethodGet())
+		out := httptest.NewResponseOutparam()
+		incominghandler.Exports.Handle(
+			types.IncomingRequest(httptest.NewIncomingRequest(req)),
+			types.ResponseOutparam(out.F0),
+		)
+		out.F1.Subscribe().Block()
+		respOptResRes := out.F1.Get()
+		respResRes := respOptResRes.Some()
+		if !assert.NotNil(t, respResRes) {
+			t.FailNow()
+		}
+		respRes := respResRes.OK()
+		if !assert.NotNil(t, respRes) || !assert.Nil(t, respRes.Err()) {
+			t.FailNow()
+		}
+		resp := respRes.OK()
+		assert.Equal(t, testtypes.StatusCode(200), resp.Status())
+		hs := map[string][][]byte{}
+		for _, h := range resp.Headers().Entries().Slice() {
+			k := string(h.F0)
+			hs[k] = append(hs[k], h.F1.Slice())
+		}
+		assert.Equal(t, map[string][][]byte{
+			"foo": {
+				[]byte("bar"),
+				[]byte("baz"),
+			},
+			"key": {
+				[]byte("value"),
+			},
+		}, hs)
+		bodyRes := resp.Consume()
+		body := bodyRes.OK()
+		if !assert.NotNil(t, body) {
+			t.FailNow()
+		}
+		bodyStreamRes := body.Stream()
+		bodyStream := bodyStreamRes.OK()
+		if !assert.NotNil(t, bodyStream) {
+			t.FailNow()
+		}
+		bufRes := bodyStream.BlockingRead(4096)
+		buf := bufRes.OK()
+		if !assert.NotNil(t, buf) {
+			t.FailNow()
+		}
+		assert.Equal(t, []byte("foo bar baz"), buf.Slice())
+		bodyStream.ResourceDrop()
+	})
 }

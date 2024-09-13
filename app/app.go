@@ -6,39 +6,59 @@ import (
 	"log/slog"
 	"unsafe"
 
+	incominghandler "github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/incoming-handler"
 	"github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types"
 	"github.com/ydnar/wasm-tools-go/cm"
 )
 
-func Handle(request types.IncomingRequest, responseOut types.ResponseOutparam) {
-	res := types.NewOutgoingResponse(types.NewFields())
+func init() {
+	incominghandler.Exports.Handle = func(request types.IncomingRequest, responseOut types.ResponseOutparam) {
+		if err := handle(request, responseOut); err != nil {
+			types.ResponseOutparamSet(responseOut, cm.Err[cm.Result[types.ErrorCodeShape, types.OutgoingResponse, types.ErrorCode]](*err))
+		}
+	}
+}
 
+func ptr[T any](v T) *T {
+	return &v
+}
+
+func handle(req types.IncomingRequest, out types.ResponseOutparam) *types.ErrorCode {
+	slog.Debug("constructing new response")
+	res := types.NewOutgoingResponse(req.Headers())
+
+	slog.Debug("getting response body")
 	body := res.Body()
 	if body.IsErr() {
-		types.ResponseOutparamSet(responseOut, cm.Err[cm.Result[types.ErrorCodeShape, types.OutgoingResponse, types.ErrorCode]](types.ErrorCodeInternalError(cm.None[string]())))
-		return
+		slog.Debug("failed to get body")
+		return ptr(types.ErrorCodeInternalError(cm.Some("failed to get body")))
 	}
 	bodyOut := body.OK()
 
+	slog.Debug("getting response body stream")
 	bodyWrite := bodyOut.Write()
 	if bodyWrite.IsErr() {
-		types.ResponseOutparamSet(responseOut, cm.Err[cm.Result[types.ErrorCodeShape, types.OutgoingResponse, types.ErrorCode]](types.ErrorCodeInternalError(cm.None[string]())))
-		return
+		slog.Debug("failed to get response body stream")
+		return ptr(types.ErrorCodeInternalError(cm.Some("failed to get response body stream")))
 	}
 
-	types.ResponseOutparamSet(responseOut, cm.OK[cm.Result[types.ErrorCodeShape, types.OutgoingResponse, types.ErrorCode]](res))
+	slog.Debug("setting response outparam")
+	types.ResponseOutparamSet(out, cm.OK[cm.Result[types.ErrorCodeShape, types.OutgoingResponse, types.ErrorCode]](res))
 	stream := bodyWrite.OK()
-	s := "hello, world"
+	s := "foo bar baz"
 	writeRes := stream.BlockingWriteAndFlush(cm.NewList(unsafe.StringData(s), uint(len(s))))
 	if writeRes.IsErr() {
 		slog.Error("failed to write to stream", "err", writeRes.Err())
-		return
+		return nil
 	}
+	slog.Debug("dropping body stream")
 	stream.ResourceDrop()
 
+	slog.Debug("finishing outgoing body")
 	finishRes := types.OutgoingBodyFinish(*bodyOut, cm.None[types.Fields]())
 	if finishRes.IsErr() {
 		slog.Error("failed to finish outgoing body", "err", finishRes.Err())
-		return
+		return nil
 	}
+	return nil
 }
