@@ -5,7 +5,7 @@ go 1.23.0
 require github.com/ydnar/wasm-tools-go v0.1.5
 
 require (
-	github.com/rvolosatovs/west v0.0.1-alpha.1
+	github.com/rvolosatovs/west v0.0.1-alpha.3
 	github.com/stretchr/testify v1.9.0
 )
 

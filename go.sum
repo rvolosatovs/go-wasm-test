@@ -2,8 +2,8 @@ github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
-github.com/rvolosatovs/west v0.0.1-alpha.1 h1:tJ2ZXQFjyrNyO1CHXFt/ih92TA9eDZPxfiHaQ/Bs5uM=
-github.com/rvolosatovs/west v0.0.1-alpha.1/go.mod h1:THPkYPLH+VCDFWuD1govO9cVoECFtxe5qNWLYRYljKg=
+github.com/rvolosatovs/west v0.0.1-alpha.3 h1:ylsgrbVT0HkagHnV0McsvIEuKl6awvzFUUa5NV49kYc=
+github.com/rvolosatovs/west v0.0.1-alpha.3/go.mod h1:THPkYPLH+VCDFWuD1govO9cVoECFtxe5qNWLYRYljKg=
 github.com/stretchr/testify v1.9.0 h1:HtqpIVDClZ4nwg75+f6Lvsy/wHu+3BoSGCbBAcpTsTg=
 github.com/stretchr/testify v1.9.0/go.mod h1:r2ic/lqez/lEtzL7wO/rwa5dbSLXVDPFyf8C91i36aY=
 github.com/ydnar/wasm-tools-go v0.1.5 h1:ah2WT4gH0IrmN29ZSsjgNC9SPsdXZ+KN+o9uTZqNVSI=
