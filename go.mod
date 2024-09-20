@@ -4,7 +4,7 @@ go 1.23.0
 
 require (
 	github.com/bytecodealliance/wasm-tools-go v0.2.0
-	github.com/rvolosatovs/west v0.1.0-rc.1
+	github.com/rvolosatovs/west v0.1.0
 	github.com/stretchr/testify v1.9.0
 )
 
