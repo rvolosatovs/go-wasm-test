@@ -1,4 +1,4 @@
-//go:generate go run github.com/rvolosatovs/west/cmd/west-bindgen-go@v0.0.1-alpha.1
+//go:generate go run github.com/rvolosatovs/west/cmd/west-bindgen-go
 
 package app_test
 
@@ -6,14 +6,14 @@ import (
 	"testing"
 	"unsafe"
 
+	"github.com/bytecodealliance/wasm-tools-go/cm"
 	incominghandler "github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/incoming-handler"
 	"github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types"
 	west "github.com/rvolosatovs/west"
 	_ "github.com/rvolosatovs/west/bindings"
 	testtypes "github.com/rvolosatovs/west/bindings/wasi/http/types"
-	httptest "github.com/rvolosatovs/west/bindings/west/test/http-test"
+	httpext "github.com/rvolosatovs/west/bindings/wasiext/http/ext"
 	"github.com/stretchr/testify/assert"
-	"github.com/ydnar/wasm-tools-go/cm"
 )
 
 func TestIncomingHandler(t *testing.T) {
@@ -50,9 +50,9 @@ func TestIncomingHandler(t *testing.T) {
 		req := testtypes.NewOutgoingRequest(headers)
 		req.SetPathWithQuery(cm.Some("test"))
 		req.SetMethod(testtypes.MethodGet())
-		out := httptest.NewResponseOutparam()
+		out := httpext.NewResponseOutparam()
 		incominghandler.Exports.Handle(
-			types.IncomingRequest(httptest.NewIncomingRequest(req)),
+			types.IncomingRequest(httpext.NewIncomingRequest(req)),
 			types.ResponseOutparam(out.F0),
 		)
 		out.F1.Subscribe().Block()

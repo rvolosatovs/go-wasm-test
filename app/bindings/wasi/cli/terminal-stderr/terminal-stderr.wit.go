@@ -7,8 +7,8 @@
 package terminalstderr
 
 import (
+	"github.com/bytecodealliance/wasm-tools-go/cm"
 	terminaloutput "github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/cli/terminal-output"
-	"github.com/ydnar/wasm-tools-go/cm"
 )
 
 // GetTerminalStderr represents the imported function "get-terminal-stderr".

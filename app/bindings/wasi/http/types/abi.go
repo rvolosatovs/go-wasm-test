@@ -3,8 +3,8 @@
 package types
 
 import (
+	"github.com/bytecodealliance/wasm-tools-go/cm"
 	monotonicclock "github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/clocks/monotonic-clock"
-	"github.com/ydnar/wasm-tools-go/cm"
 	"unsafe"
 )
 

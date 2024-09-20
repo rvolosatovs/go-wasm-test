@@ -4,11 +4,11 @@
 package tcp
 
 import (
+	"github.com/bytecodealliance/wasm-tools-go/cm"
 	monotonicclock "github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/clocks/monotonic-clock"
 	"github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/io/poll"
 	"github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/io/streams"
 	"github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/sockets/network"
-	"github.com/ydnar/wasm-tools-go/cm"
 )
 
 // ShutdownType represents the enum "wasi:sockets/tcp@0.2.0#shutdown-type".

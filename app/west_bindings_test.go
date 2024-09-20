@@ -3,12 +3,12 @@
 package app_test
 
 import (
+	github_com__bytecodealliance__wasm___tools___go__cm "github.com/bytecodealliance/wasm-tools-go/cm"
 	github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__clocks__monotonic___clock "github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/clocks/monotonic-clock"
 	github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types "github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types"
 	github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__poll "github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/io/poll"
 	github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams "github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/io/streams"
 	west "github.com/rvolosatovs/west"
-	github_com__ydnar__wasm___tools___go__cm "github.com/ydnar/wasm-tools-go/cm"
 	"runtime"
 	"unsafe"
 )
@@ -162,7 +162,7 @@ func wasmimport_NewRequestOptions() (result0 uint32) {
 }
 
 //go:linkname wasmimport_FieldsAppend github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_FieldsAppend
-func wasmimport_FieldsAppend(self0 uint32, name0 *uint8, name1 uint32, value0 *uint8, value1 uint32, result *github_com__ydnar__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.HeaderError, struct{}, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.HeaderError]) {
+func wasmimport_FieldsAppend(self0 uint32, name0 *uint8, name1 uint32, value0 *uint8, value1 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.HeaderError, struct{}, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.HeaderError]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -218,7 +218,7 @@ func wasmimport_FieldsClone(self0 uint32) (result0 uint32) {
 }
 
 //go:linkname wasmimport_FieldsDelete github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_FieldsDelete
-func wasmimport_FieldsDelete(self0 uint32, name0 *uint8, name1 uint32, result *github_com__ydnar__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.HeaderError, struct{}, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.HeaderError]) {
+func wasmimport_FieldsDelete(self0 uint32, name0 *uint8, name1 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.HeaderError, struct{}, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.HeaderError]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -246,7 +246,7 @@ func wasmimport_FieldsDelete(self0 uint32, name0 *uint8, name1 uint32, result *g
 }
 
 //go:linkname wasmimport_FieldsEntries github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_FieldsEntries
-func wasmimport_FieldsEntries(self0 uint32, result *github_com__ydnar__wasm___tools___go__cm.List[github_com__ydnar__wasm___tools___go__cm.Tuple[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.FieldKey, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.FieldValue]]) {
+func wasmimport_FieldsEntries(self0 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.List[github_com__bytecodealliance__wasm___tools___go__cm.Tuple[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.FieldKey, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.FieldValue]]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -266,7 +266,7 @@ func wasmimport_FieldsEntries(self0 uint32, result *github_com__ydnar__wasm___to
 }
 
 //go:linkname wasmimport_FieldsGet github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_FieldsGet
-func wasmimport_FieldsGet(self0 uint32, name0 *uint8, name1 uint32, result *github_com__ydnar__wasm___tools___go__cm.List[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.FieldValue]) {
+func wasmimport_FieldsGet(self0 uint32, name0 *uint8, name1 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.List[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.FieldValue]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -322,7 +322,7 @@ func wasmimport_FieldsHas(self0 uint32, name0 *uint8, name1 uint32) (result0 uin
 }
 
 //go:linkname wasmimport_FieldsSet github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_FieldsSet
-func wasmimport_FieldsSet(self0 uint32, name0 *uint8, name1 uint32, value0 *github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.FieldValue, value1 uint32, result *github_com__ydnar__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.HeaderError, struct{}, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.HeaderError]) {
+func wasmimport_FieldsSet(self0 uint32, name0 *uint8, name1 uint32, value0 *github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.FieldValue, value1 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.HeaderError, struct{}, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.HeaderError]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -358,7 +358,7 @@ func wasmimport_FieldsSet(self0 uint32, name0 *uint8, name1 uint32, value0 *gith
 }
 
 //go:linkname wasmimport_FutureIncomingResponseGet github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_FutureIncomingResponseGet
-func wasmimport_FutureIncomingResponseGet(self0 uint32, result *github_com__ydnar__wasm___tools___go__cm.Option[github_com__ydnar__wasm___tools___go__cm.Result[github_com__ydnar__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.ErrorCodeShape, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.IncomingResponse, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.ErrorCode], github_com__ydnar__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.ErrorCodeShape, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.IncomingResponse, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.ErrorCode], struct{}]]) {
+func wasmimport_FutureIncomingResponseGet(self0 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Option[github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.ErrorCodeShape, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.IncomingResponse, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.ErrorCode], github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.ErrorCodeShape, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.IncomingResponse, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.ErrorCode], struct{}]]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -398,7 +398,7 @@ func wasmimport_FutureIncomingResponseSubscribe(self0 uint32) (result0 uint32) {
 }
 
 //go:linkname wasmimport_FutureTrailersGet github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_FutureTrailersGet
-func wasmimport_FutureTrailersGet(self0 uint32, result *github_com__ydnar__wasm___tools___go__cm.Option[github_com__ydnar__wasm___tools___go__cm.Result[github_com__ydnar__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.ErrorCodeShape, github_com__ydnar__wasm___tools___go__cm.Option[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.Fields], github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.ErrorCode], github_com__ydnar__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.ErrorCodeShape, github_com__ydnar__wasm___tools___go__cm.Option[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.Fields], github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.ErrorCode], struct{}]]) {
+func wasmimport_FutureTrailersGet(self0 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Option[github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.ErrorCodeShape, github_com__bytecodealliance__wasm___tools___go__cm.Option[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.Fields], github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.ErrorCode], github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.ErrorCodeShape, github_com__bytecodealliance__wasm___tools___go__cm.Option[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.Fields], github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.ErrorCode], struct{}]]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -438,7 +438,7 @@ func wasmimport_FutureTrailersSubscribe(self0 uint32) (result0 uint32) {
 }
 
 //go:linkname wasmimport_IncomingBodyStream github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_IncomingBodyStream
-func wasmimport_IncomingBodyStream(self0 uint32, result *github_com__ydnar__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.InputStream, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.InputStream, struct{}]) {
+func wasmimport_IncomingBodyStream(self0 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.InputStream, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.InputStream, struct{}]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -458,7 +458,7 @@ func wasmimport_IncomingBodyStream(self0 uint32, result *github_com__ydnar__wasm
 }
 
 //go:linkname wasmimport_IncomingRequestAuthority github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_IncomingRequestAuthority
-func wasmimport_IncomingRequestAuthority(self0 uint32, result *github_com__ydnar__wasm___tools___go__cm.Option[string]) {
+func wasmimport_IncomingRequestAuthority(self0 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Option[string]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -478,7 +478,7 @@ func wasmimport_IncomingRequestAuthority(self0 uint32, result *github_com__ydnar
 }
 
 //go:linkname wasmimport_IncomingRequestConsume github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_IncomingRequestConsume
-func wasmimport_IncomingRequestConsume(self0 uint32, result *github_com__ydnar__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.IncomingBody, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.IncomingBody, struct{}]) {
+func wasmimport_IncomingRequestConsume(self0 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.IncomingBody, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.IncomingBody, struct{}]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -538,7 +538,7 @@ func wasmimport_IncomingRequestMethod(self0 uint32, result *github_com__rvolosat
 }
 
 //go:linkname wasmimport_IncomingRequestPathWithQuery github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_IncomingRequestPathWithQuery
-func wasmimport_IncomingRequestPathWithQuery(self0 uint32, result *github_com__ydnar__wasm___tools___go__cm.Option[string]) {
+func wasmimport_IncomingRequestPathWithQuery(self0 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Option[string]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -558,7 +558,7 @@ func wasmimport_IncomingRequestPathWithQuery(self0 uint32, result *github_com__y
 }
 
 //go:linkname wasmimport_IncomingRequestScheme github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_IncomingRequestScheme
-func wasmimport_IncomingRequestScheme(self0 uint32, result *github_com__ydnar__wasm___tools___go__cm.Option[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.Scheme]) {
+func wasmimport_IncomingRequestScheme(self0 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Option[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.Scheme]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -578,7 +578,7 @@ func wasmimport_IncomingRequestScheme(self0 uint32, result *github_com__ydnar__w
 }
 
 //go:linkname wasmimport_IncomingResponseConsume github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_IncomingResponseConsume
-func wasmimport_IncomingResponseConsume(self0 uint32, result *github_com__ydnar__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.IncomingBody, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.IncomingBody, struct{}]) {
+func wasmimport_IncomingResponseConsume(self0 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.IncomingBody, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.IncomingBody, struct{}]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -638,7 +638,7 @@ func wasmimport_IncomingResponseStatus(self0 uint32) (result0 uint32) {
 }
 
 //go:linkname wasmimport_OutgoingBodyWrite github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_OutgoingBodyWrite
-func wasmimport_OutgoingBodyWrite(self0 uint32, result *github_com__ydnar__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.OutputStream, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.OutputStream, struct{}]) {
+func wasmimport_OutgoingBodyWrite(self0 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.OutputStream, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.OutputStream, struct{}]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -658,7 +658,7 @@ func wasmimport_OutgoingBodyWrite(self0 uint32, result *github_com__ydnar__wasm_
 }
 
 //go:linkname wasmimport_OutgoingRequestAuthority github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_OutgoingRequestAuthority
-func wasmimport_OutgoingRequestAuthority(self0 uint32, result *github_com__ydnar__wasm___tools___go__cm.Option[string]) {
+func wasmimport_OutgoingRequestAuthority(self0 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Option[string]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -678,7 +678,7 @@ func wasmimport_OutgoingRequestAuthority(self0 uint32, result *github_com__ydnar
 }
 
 //go:linkname wasmimport_OutgoingRequestBody github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_OutgoingRequestBody
-func wasmimport_OutgoingRequestBody(self0 uint32, result *github_com__ydnar__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.OutgoingBody, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.OutgoingBody, struct{}]) {
+func wasmimport_OutgoingRequestBody(self0 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.OutgoingBody, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.OutgoingBody, struct{}]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -738,7 +738,7 @@ func wasmimport_OutgoingRequestMethod(self0 uint32, result *github_com__rvolosat
 }
 
 //go:linkname wasmimport_OutgoingRequestPathWithQuery github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_OutgoingRequestPathWithQuery
-func wasmimport_OutgoingRequestPathWithQuery(self0 uint32, result *github_com__ydnar__wasm___tools___go__cm.Option[string]) {
+func wasmimport_OutgoingRequestPathWithQuery(self0 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Option[string]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -758,7 +758,7 @@ func wasmimport_OutgoingRequestPathWithQuery(self0 uint32, result *github_com__y
 }
 
 //go:linkname wasmimport_OutgoingRequestScheme github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_OutgoingRequestScheme
-func wasmimport_OutgoingRequestScheme(self0 uint32, result *github_com__ydnar__wasm___tools___go__cm.Option[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.Scheme]) {
+func wasmimport_OutgoingRequestScheme(self0 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Option[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.Scheme]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -910,7 +910,7 @@ func wasmimport_OutgoingRequestSetScheme(self0 uint32, scheme0 uint32, scheme1 u
 }
 
 //go:linkname wasmimport_OutgoingResponseBody github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_OutgoingResponseBody
-func wasmimport_OutgoingResponseBody(self0 uint32, result *github_com__ydnar__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.OutgoingBody, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.OutgoingBody, struct{}]) {
+func wasmimport_OutgoingResponseBody(self0 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.OutgoingBody, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.OutgoingBody, struct{}]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -994,7 +994,7 @@ func wasmimport_OutgoingResponseStatusCode(self0 uint32) (result0 uint32) {
 }
 
 //go:linkname wasmimport_RequestOptionsBetweenBytesTimeout github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_RequestOptionsBetweenBytesTimeout
-func wasmimport_RequestOptionsBetweenBytesTimeout(self0 uint32, result *github_com__ydnar__wasm___tools___go__cm.Option[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__clocks__monotonic___clock.Duration]) {
+func wasmimport_RequestOptionsBetweenBytesTimeout(self0 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Option[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__clocks__monotonic___clock.Duration]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -1014,7 +1014,7 @@ func wasmimport_RequestOptionsBetweenBytesTimeout(self0 uint32, result *github_c
 }
 
 //go:linkname wasmimport_RequestOptionsConnectTimeout github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_RequestOptionsConnectTimeout
-func wasmimport_RequestOptionsConnectTimeout(self0 uint32, result *github_com__ydnar__wasm___tools___go__cm.Option[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__clocks__monotonic___clock.Duration]) {
+func wasmimport_RequestOptionsConnectTimeout(self0 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Option[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__clocks__monotonic___clock.Duration]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -1034,7 +1034,7 @@ func wasmimport_RequestOptionsConnectTimeout(self0 uint32, result *github_com__y
 }
 
 //go:linkname wasmimport_RequestOptionsFirstByteTimeout github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_RequestOptionsFirstByteTimeout
-func wasmimport_RequestOptionsFirstByteTimeout(self0 uint32, result *github_com__ydnar__wasm___tools___go__cm.Option[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__clocks__monotonic___clock.Duration]) {
+func wasmimport_RequestOptionsFirstByteTimeout(self0 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Option[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__clocks__monotonic___clock.Duration]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -1314,7 +1314,7 @@ func wasmimport_ResponseOutparamResourceDrop(self0 uint32) {
 }
 
 //go:linkname wasmimport_FieldsFromList github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_FieldsFromList
-func wasmimport_FieldsFromList(entries0 *github_com__ydnar__wasm___tools___go__cm.Tuple[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.FieldKey, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.FieldValue], entries1 uint32, result *github_com__ydnar__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.Fields, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.Fields, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.HeaderError]) {
+func wasmimport_FieldsFromList(entries0 *github_com__bytecodealliance__wasm___tools___go__cm.Tuple[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.FieldKey, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.FieldValue], entries1 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.Fields, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.Fields, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.HeaderError]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -1358,7 +1358,7 @@ func wasmimport_IncomingBodyFinish(this0 uint32) (result0 uint32) {
 }
 
 //go:linkname wasmimport_OutgoingBodyFinish github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_OutgoingBodyFinish
-func wasmimport_OutgoingBodyFinish(this0 uint32, trailers0 uint32, trailers1 uint32, result *github_com__ydnar__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.ErrorCode, struct{}, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.ErrorCode]) {
+func wasmimport_OutgoingBodyFinish(this0 uint32, trailers0 uint32, trailers1 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.ErrorCode, struct{}, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.ErrorCode]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -1434,7 +1434,7 @@ func wasmimport_ResponseOutparamSet(param0 uint32, response0 uint32, response1 u
 }
 
 //go:linkname wasmimport_HTTPErrorCode github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types.wasmimport_HTTPErrorCode
-func wasmimport_HTTPErrorCode(err0 uint32, result *github_com__ydnar__wasm___tools___go__cm.Option[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.ErrorCode]) {
+func wasmimport_HTTPErrorCode(err0 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Option[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__http__types.ErrorCode]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -1542,7 +1542,7 @@ func wasmimport_PollableResourceDrop(self0 uint32) {
 }
 
 //go:linkname wasmimport_Poll github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/io/poll.wasmimport_Poll
-func wasmimport_Poll(in0 *github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__poll.Pollable, in1 uint32, result *github_com__ydnar__wasm___tools___go__cm.List[uint32]) {
+func wasmimport_Poll(in0 *github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__poll.Pollable, in1 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.List[uint32]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -1566,7 +1566,7 @@ func wasmimport_Poll(in0 *github_com__rvolosatovs__go___wasm___test__app__bindin
 }
 
 //go:linkname wasmimport_InputStreamBlockingRead github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/io/streams.wasmimport_InputStreamBlockingRead
-func wasmimport_InputStreamBlockingRead(self0 uint32, len0 uint64, result *github_com__ydnar__wasm___tools___go__cm.Result[github_com__ydnar__wasm___tools___go__cm.List[uint8], github_com__ydnar__wasm___tools___go__cm.List[uint8], github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
+func wasmimport_InputStreamBlockingRead(self0 uint32, len0 uint64, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__bytecodealliance__wasm___tools___go__cm.List[uint8], github_com__bytecodealliance__wasm___tools___go__cm.List[uint8], github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -1590,7 +1590,7 @@ func wasmimport_InputStreamBlockingRead(self0 uint32, len0 uint64, result *githu
 }
 
 //go:linkname wasmimport_InputStreamBlockingSkip github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/io/streams.wasmimport_InputStreamBlockingSkip
-func wasmimport_InputStreamBlockingSkip(self0 uint32, len0 uint64, result *github_com__ydnar__wasm___tools___go__cm.Result[uint64, uint64, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
+func wasmimport_InputStreamBlockingSkip(self0 uint32, len0 uint64, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[uint64, uint64, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -1614,7 +1614,7 @@ func wasmimport_InputStreamBlockingSkip(self0 uint32, len0 uint64, result *githu
 }
 
 //go:linkname wasmimport_InputStreamRead github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/io/streams.wasmimport_InputStreamRead
-func wasmimport_InputStreamRead(self0 uint32, len0 uint64, result *github_com__ydnar__wasm___tools___go__cm.Result[github_com__ydnar__wasm___tools___go__cm.List[uint8], github_com__ydnar__wasm___tools___go__cm.List[uint8], github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
+func wasmimport_InputStreamRead(self0 uint32, len0 uint64, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__bytecodealliance__wasm___tools___go__cm.List[uint8], github_com__bytecodealliance__wasm___tools___go__cm.List[uint8], github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -1638,7 +1638,7 @@ func wasmimport_InputStreamRead(self0 uint32, len0 uint64, result *github_com__y
 }
 
 //go:linkname wasmimport_InputStreamSkip github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/io/streams.wasmimport_InputStreamSkip
-func wasmimport_InputStreamSkip(self0 uint32, len0 uint64, result *github_com__ydnar__wasm___tools___go__cm.Result[uint64, uint64, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
+func wasmimport_InputStreamSkip(self0 uint32, len0 uint64, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[uint64, uint64, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -1682,7 +1682,7 @@ func wasmimport_InputStreamSubscribe(self0 uint32) (result0 uint32) {
 }
 
 //go:linkname wasmimport_OutputStreamBlockingFlush github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/io/streams.wasmimport_OutputStreamBlockingFlush
-func wasmimport_OutputStreamBlockingFlush(self0 uint32, result *github_com__ydnar__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError, struct{}, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
+func wasmimport_OutputStreamBlockingFlush(self0 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError, struct{}, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -1702,7 +1702,7 @@ func wasmimport_OutputStreamBlockingFlush(self0 uint32, result *github_com__ydna
 }
 
 //go:linkname wasmimport_OutputStreamBlockingSplice github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/io/streams.wasmimport_OutputStreamBlockingSplice
-func wasmimport_OutputStreamBlockingSplice(self0 uint32, src0 uint32, len0 uint64, result *github_com__ydnar__wasm___tools___go__cm.Result[uint64, uint64, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
+func wasmimport_OutputStreamBlockingSplice(self0 uint32, src0 uint32, len0 uint64, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[uint64, uint64, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -1730,7 +1730,7 @@ func wasmimport_OutputStreamBlockingSplice(self0 uint32, src0 uint32, len0 uint6
 }
 
 //go:linkname wasmimport_OutputStreamBlockingWriteAndFlush github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/io/streams.wasmimport_OutputStreamBlockingWriteAndFlush
-func wasmimport_OutputStreamBlockingWriteAndFlush(self0 uint32, contents0 *uint8, contents1 uint32, result *github_com__ydnar__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError, struct{}, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
+func wasmimport_OutputStreamBlockingWriteAndFlush(self0 uint32, contents0 *uint8, contents1 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError, struct{}, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -1758,7 +1758,7 @@ func wasmimport_OutputStreamBlockingWriteAndFlush(self0 uint32, contents0 *uint8
 }
 
 //go:linkname wasmimport_OutputStreamBlockingWriteZeroesAndFlush github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/io/streams.wasmimport_OutputStreamBlockingWriteZeroesAndFlush
-func wasmimport_OutputStreamBlockingWriteZeroesAndFlush(self0 uint32, len0 uint64, result *github_com__ydnar__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError, struct{}, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
+func wasmimport_OutputStreamBlockingWriteZeroesAndFlush(self0 uint32, len0 uint64, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError, struct{}, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -1782,7 +1782,7 @@ func wasmimport_OutputStreamBlockingWriteZeroesAndFlush(self0 uint32, len0 uint6
 }
 
 //go:linkname wasmimport_OutputStreamCheckWrite github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/io/streams.wasmimport_OutputStreamCheckWrite
-func wasmimport_OutputStreamCheckWrite(self0 uint32, result *github_com__ydnar__wasm___tools___go__cm.Result[uint64, uint64, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
+func wasmimport_OutputStreamCheckWrite(self0 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[uint64, uint64, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -1802,7 +1802,7 @@ func wasmimport_OutputStreamCheckWrite(self0 uint32, result *github_com__ydnar__
 }
 
 //go:linkname wasmimport_OutputStreamFlush github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/io/streams.wasmimport_OutputStreamFlush
-func wasmimport_OutputStreamFlush(self0 uint32, result *github_com__ydnar__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError, struct{}, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
+func wasmimport_OutputStreamFlush(self0 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError, struct{}, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -1822,7 +1822,7 @@ func wasmimport_OutputStreamFlush(self0 uint32, result *github_com__ydnar__wasm_
 }
 
 //go:linkname wasmimport_OutputStreamSplice github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/io/streams.wasmimport_OutputStreamSplice
-func wasmimport_OutputStreamSplice(self0 uint32, src0 uint32, len0 uint64, result *github_com__ydnar__wasm___tools___go__cm.Result[uint64, uint64, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
+func wasmimport_OutputStreamSplice(self0 uint32, src0 uint32, len0 uint64, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[uint64, uint64, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -1870,7 +1870,7 @@ func wasmimport_OutputStreamSubscribe(self0 uint32) (result0 uint32) {
 }
 
 //go:linkname wasmimport_OutputStreamWrite github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/io/streams.wasmimport_OutputStreamWrite
-func wasmimport_OutputStreamWrite(self0 uint32, contents0 *uint8, contents1 uint32, result *github_com__ydnar__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError, struct{}, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
+func wasmimport_OutputStreamWrite(self0 uint32, contents0 *uint8, contents1 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError, struct{}, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {
@@ -1898,7 +1898,7 @@ func wasmimport_OutputStreamWrite(self0 uint32, contents0 *uint8, contents1 uint
 }
 
 //go:linkname wasmimport_OutputStreamWriteZeroes github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/io/streams.wasmimport_OutputStreamWriteZeroes
-func wasmimport_OutputStreamWriteZeroes(self0 uint32, len0 uint64, result *github_com__ydnar__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError, struct{}, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
+func wasmimport_OutputStreamWriteZeroes(self0 uint32, len0 uint64, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError, struct{}, github_com__rvolosatovs__go___wasm___test__app__bindings__wasi__io__streams.StreamError]) {
 	var __p runtime.Pinner
 	defer __p.Unpin()
 	if __err := west.WithCurrentInstance(func(__instance *west.Instance) error {

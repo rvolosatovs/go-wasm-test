@@ -1,4 +1,4 @@
-//go:generate go run github.com/ydnar/wasm-tools-go/cmd/wit-bindgen-go@v0.1.5 generate -w service -o bindings ./wit
+//go:generate go run github.com/bytecodealliance/wasm-tools-go/cmd/wit-bindgen-go generate -w service -o bindings ./wit
 
 package app
 
@@ -6,9 +6,9 @@ import (
 	"log/slog"
 	"unsafe"
 
+	"github.com/bytecodealliance/wasm-tools-go/cm"
 	incominghandler "github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/incoming-handler"
 	"github.com/rvolosatovs/go-wasm-test/app/bindings/wasi/http/types"
-	"github.com/ydnar/wasm-tools-go/cm"
 )
 
 func init() {

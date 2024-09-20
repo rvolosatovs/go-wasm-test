@@ -4,7 +4,7 @@
 package sync
 
 import (
-	"github.com/ydnar/wasm-tools-go/cm"
+	"github.com/bytecodealliance/wasm-tools-go/cm"
 )
 
 // Xx represents the imported resource "dbg:app/sync#xx".
